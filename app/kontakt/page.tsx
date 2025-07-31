@@ -16,9 +16,9 @@ const contactMethods = [
     icon: <Mail className="text-blue-500" size={24} />,
     title: "E-Mail Support",
     description: "Schreibe uns eine E-Mail für detaillierte Anfragen",
-    contact: "info@instagramschriftgenerator.pro",
+    contact: "info@instaschrift.pro",
     action: "E-Mail senden",
-    href: "mailto:info@instagramschriftgenerator.pro",
+    href: "mailto:info@instaschrift.pro",
   },
   {
     icon: <MessageCircle className="text-green-500" size={24} />,
