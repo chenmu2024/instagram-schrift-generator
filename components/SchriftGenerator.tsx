@@ -232,7 +232,7 @@ function ResultCard({
 
 export default function SchriftGenerator() {
   const [inputText, setInputText] = useState<string>("")
-  const [selectedCategory, setSelectedCategory] = useState<string>("Alle") // 默认显示所有字体
+  const [selectedCategory, setSelectedCategory] = useState<string>("Alle")
   const [searchQuery, setSearchQuery] = useState<string>("")
   const [favorites, setFavorites] = useState<Set<string>>(new Set())
   const [showOnlyFavorites, setShowOnlyFavorites] = useState(false)
@@ -243,12 +243,10 @@ export default function SchriftGenerator() {
   const { history, addToHistory, removeFromHistory, clearHistory } = useHistory()
   const inputRef = useRef<HTMLTextAreaElement>(null)
 
-  // 防抖搜索
   const debouncedSearch = useDebouncedCallback((value: string) => {
     setSearchQuery(value)
   }, 300)
 
-  // 键盘快捷键
   const shortcuts = useKeyboardShortcuts([
     {
       key: "k",
@@ -296,26 +294,22 @@ export default function SchriftGenerator() {
 
     let fonts = convertText(inputText)
 
-    // Apply category filter
     if (selectedCategory !== "Alle") {
       const categoryFonts = getFontsByCategory(selectedCategory)
       const categoryNames = categoryFonts.map((f) => f.name)
       fonts = fonts.filter((font) => categoryNames.includes(font.name))
     }
 
-    // Apply search filter
     if (searchQuery.trim()) {
       const searchResults = searchFonts(searchQuery)
       const searchNames = searchResults.map((f) => f.name)
       fonts = fonts.filter((font) => searchNames.includes(font.name))
     }
 
-    // Apply favorites filter
     if (showOnlyFavorites) {
       fonts = fonts.filter((font) => favorites.has(font.name))
     }
 
-    // Sort by popularity (already sorted in convertText)
     return fonts
   }, [inputText, selectedCategory, searchQuery, favorites, showOnlyFavorites])
 
@@ -328,7 +322,6 @@ export default function SchriftGenerator() {
         newFavorites.add(fontName)
       }
 
-      // 保存到localStorage
       try {
         localStorage.setItem("instagram-schrift-favorites", JSON.stringify([...newFavorites]))
       } catch (error) {
@@ -362,7 +355,6 @@ export default function SchriftGenerator() {
       setInputText(value)
       if (value.trim()) {
         setIsLoading(true)
-        // 模拟加载延迟
         setTimeout(() => setIsLoading(false), 300)
         addToHistory(value)
       }
@@ -376,7 +368,6 @@ export default function SchriftGenerator() {
     inputRef.current?.focus()
   }, [])
 
-  // 从localStorage加载收藏夹
   useEffect(() => {
     try {
       const saved = localStorage.getItem("instagram-schrift-favorites")
@@ -390,7 +381,6 @@ export default function SchriftGenerator() {
 
   return (
     <div className="w-full max-w-6xl mx-auto">
-      {/* 键盘快捷键帮助 */}
       {showKeyboardHelp && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-white dark:bg-slate-800 rounded-xl p-6 max-w-md w-full">
@@ -418,7 +408,6 @@ export default function SchriftGenerator() {
         </div>
       )}
 
-      {/* Enhanced Input Area */}
       <div className="mb-6 sm:mb-8">
         <div className="relative">
           <label
@@ -438,7 +427,8 @@ export default function SchriftGenerator() {
             rows={3}
             value={inputText}
             onChange={(e) => handleInputChange(e.target.value)}
-            placeholder="Schreibe hier deinen Text für Instagram Schriftarten... ✨ (Ctrl+K zum Fokussieren, Ctrl+T für Trending)"
+            // 👇 1. 这里是第一个修改点
+            placeholder="Schreibe hier deinen Text für Instagram Schriftarten... ✨"
             className="w-full px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg border-2 border-slate-200 dark:border-slate-700 rounded-xl sm:rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm text-slate-800 dark:text-slate-100 placeholder-slate-500 dark:placeholder-slate-400 focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 resize-none shadow-lg"
           />
           <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 flex items-center gap-2">
@@ -450,7 +440,6 @@ export default function SchriftGenerator() {
           </div>
         </div>
 
-        {/* Historie Panel */}
         {showHistory && history.length > 0 && (
           <div className="mt-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
             <div className="flex items-center justify-between mb-3">
@@ -479,15 +468,14 @@ export default function SchriftGenerator() {
             </div>
           </div>
         )}
-
+        
+        {/* 👇 2. 这里是第二个修改点 */}
         <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-2">
           Unser Instagram Schrift Generator wandelt deinen Text in über 45 verschiedene Instagram Schriftarten um.
-          Perfekt für Instagram Bio, Posts und Stories. Nutze Ctrl+K zum schnellen Fokussieren, Ctrl+T für Trending
-          Fonts.
+          Perfekt für Instagram Bio, Posts und Stories.
         </p>
       </div>
 
-      {/* Filters and Search */}
       {inputText.length > 0 && (
         <div className="mb-6 sm:mb-8 space-y-4">
           <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
@@ -527,7 +515,6 @@ export default function SchriftGenerator() {
             </div>
           </div>
 
-          {/* Category Filter */}
           <div className="flex flex-wrap gap-2">
             <div className="flex items-center gap-2 mb-2 sm:mb-0">
               <Filter className="text-slate-500" size={18} />
@@ -553,7 +540,6 @@ export default function SchriftGenerator() {
         </div>
       )}
 
-      {/* Results Area */}
       {inputText.length > 0 && (
         <div className="space-y-4 sm:space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -581,7 +567,7 @@ export default function SchriftGenerator() {
 
           <div className="grid gap-3 sm:gap-4 animate-in fade-in duration-500">
             {isLoading
-              ? // Loading skeletons
+              ?
                 Array.from({ length: 6 }).map((_, index) => (
                   <ResultCard
                     key={`skeleton-${index}`}
@@ -603,9 +589,7 @@ export default function SchriftGenerator() {
                     popularity={result.popularity}
                     isFavorite={favorites.has(result.name)}
                     onToggleFavorite={() => toggleFavorite(result.name)}
-                    onCopy={() => {
-                      // 可以在这里添加额外的复制逻辑
-                    }}
+                    onCopy={() => {}}
                     index={index}
                   />
                 ))}
@@ -613,7 +597,6 @@ export default function SchriftGenerator() {
         </div>
       )}
 
-      {/* Empty State */}
       {inputText.length === 0 && (
         <div className="text-center py-12 sm:py-16">
           <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
@@ -637,7 +620,6 @@ export default function SchriftGenerator() {
             <span>Hilfe</span>
           </div>
 
-          {/* Trending Preview */}
           <div className="bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-950/20 dark:to-pink-950/20 rounded-xl p-6 max-w-2xl mx-auto">
             <div className="flex items-center justify-center gap-2 mb-4">
               <TrendingUp className="text-red-500" size={20} />
