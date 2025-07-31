@@ -14,7 +14,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/", "/admin/"],
       },
     ],
-    sitemap: "https://instagramschriftgenerator.pro/sitemap.xml",
-    host: "https://instagramschriftgenerator.pro",
+    sitemap: "https://instaschrift.pro/sitemap.xml",
+    host: "https://instaschrift.pro",
   }
 }
