@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import Header from "@/components/Header"
@@ -16,9 +16,9 @@ const inter = Inter({
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "Instagram Schrift Generator - Schriftarten Generator für Instagram",
+  name: "Dein Instagram Schrift Generator", // Geändert
   description:
-    "Der beste Instagram Schrift Generator für coole Instagram Schriften. Über 45 Schriftarten Generator für Instagram Bio, Posts & Stories. Kostenlos & sofort.",
+    "Wandle Text in coole Instagram-Schriften um. Einfach Stil wählen, kopieren und in deiner Bio einfügen. Kostenlos & sofort.", // Geändert
   url: "https://instaschrift.pro",
   applicationCategory: "UtilitiesApplication",
   operatingSystem: "Web Browser",
@@ -63,11 +63,11 @@ const jsonLd = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://instaschrift.pro"),
   title: {
-    template: "%s | Instagram Schrift Generator - Über 45 Schriftarten",
-    default: "Instagram Schrift Generator - Über 45 Schriftarten • Trending Fonts",
+    template: "%s | Dein Instagram Schrift Generator", // Geändert
+    default: "Dein Instagram Schrift Generator", // Geändert
   },
   description:
-    "Der beste Instagram Schrift Generator mit über 45 coolen Instagram Schriften. Neue Trending Fonts: Aesthetic Vaporwave, TikTok Style, Y2K Cyber, Gaming Pro. Schriftarten Generator für Instagram Bio, Posts & Stories kostenlos.",
+    "Wandle Text in coole Instagram-Schriften um. Einfach Stil wählen, kopieren und in deiner Bio einfügen. Kostenlos & sofort.", // Geändert
   keywords: [
     "Instagram Schrift Generator",
     "Trending Instagram Schriftarten",
@@ -91,46 +91,6 @@ export const metadata: Metadata = {
     "Schriftart Generator",
     "Instagram Schriftart",
     "Schreibschrift Generator",
-    "Altdeutsche Schrift Generator",
-    "Schrift Generator Altdeutsch",
-    "Schriftzug erstellen",
-    "Schriftart Instagram",
-    "Unicode Schriftarten",
-    "Instagram Bio Schriften",
-    "Coole Schriften Instagram",
-    "Instagram Text Generator",
-    "Schöne Schriften Instagram",
-    "Instagram Stories Schriften",
-    "Kostenloser Font Generator",
-    "Deutsche Instagram Schriften",
-    "Aesthetic Schrift Generator",
-    "Neon Schrift Generator",
-    "Retro Schrift Generator",
-    "Gaming Schrift Generator",
-    "Vintage Schrift Generator",
-    "Bubble Text Generator",
-    "Zalgo Text Generator",
-    "Leet Speak Generator",
-    "Cyber Schrift Generator",
-    "Glitch Schrift Generator",
-    "Griechisch Schrift Generator",
-    "Spiegelschrift Generator",
-    "Unterstrichen Schrift",
-    "Durchgestrichen Schrift",
-    "Eingekreist Schrift",
-    "Quadratisch Schrift",
-    "Monospace Schrift",
-    "Script Schrift",
-    "Fraktur Schrift",
-    "Double-struck Schrift",
-    "Instagram Schrift kopieren",
-    "Instagram Bio Generator",
-    "Instagram Text Styles",
-    "Social Media Schriftarten",
-    "Unicode Text Generator",
-    "Fancy Text Generator",
-    "Cool Text Generator",
-    "Stylish Text Generator",
   ],
   authors: [{ name: "Instagram Schrift Generator Team", url: "https://instaschrift.pro" }],
   creator: "Instagram Schrift Generator",
@@ -155,24 +115,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "de_DE",
     url: "https://instaschrift.pro",
-    siteName: "Instagram Schrift Generator - Über 45 Schriftarten",
-    title: "Instagram Schrift Generator - Über 45 Schriftarten • Trending Fonts",
+    siteName: "Dein Instagram Schrift Generator", // Geändert
+    title: "Dein Instagram Schrift Generator", // Geändert
     description:
-      "Der beste Instagram Schrift Generator mit über 45 coolen Instagram Schriften. Neue Trending Fonts: Aesthetic Vaporwave, TikTok Style, Y2K Cyber, Gaming Pro kostenlos.",
+      "Wandle Text in coole Instagram-Schriften um. Einfach Stil wählen, kopieren und in deiner Bio einfügen. Kostenlos & sofort.", // Geändert
     images: [
       {
         url: "/android-chrome-512x512.png",
         width: 512,
         height: 512,
-        alt: "Instagram Schrift Generator Logo - Über 45 Schriftarten für Instagram",
+        alt: "Instagram Schrift Generator Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Instagram Schrift Generator - Über 45 Schriftarten • Trending Fonts",
+    title: "Dein Instagram Schrift Generator", // Geändert
     description:
-      "Der beste Instagram Schrift Generator mit über 45 coolen Instagram Schriften. Trending Fonts: Aesthetic Vaporwave, TikTok Style, Y2K Cyber kostenlos.",
+      "Wandle Text in coole Instagram-Schriften um. Einfach Stil wählen, kopieren und in deiner Bio einfügen. Kostenlos & sofort.", // Geändert
     images: ["/android-chrome-512x512.png"],
     creator: "@instagramschrift",
   },
@@ -184,6 +144,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
@@ -197,10 +158,6 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/site.webmanifest",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
-  ],
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
@@ -209,60 +166,38 @@ export const metadata: Metadata = {
     generator: 'v0.dev'
 }
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
+  ],
+}
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="de" className={inter.className}>
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
-        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#8b5cf6" />
-        <meta name="msapplication-TileColor" content="#8b5cf6" />
-        <meta name="msapplication-config" content="/browserconfig.xml" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-
-        {/* Preload critical resources */}
-        <link rel="preload" href="/android-chrome-192x192.png" as="image" />
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-
-        {/* Security headers */}
-        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-        <meta httpEquiv="X-Frame-Options" content="DENY" />
-        <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
-        <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-
-        {/* Service Worker Registration */}
+    <html lang="de" className={inter.className} suppressHydrationWarning>
+      <body className="bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-200 min-h-screen flex flex-col antialiased">
         <script
           dangerouslySetInnerHTML={{
             __html: `
               if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
-                  navigator.serviceWorker.register('/sw.js')
-                    .then(function(registration) {
-                      console.log('SW registered: ', registration);
-                    })
-                    .catch(function(registrationError) {
-                      console.log('SW registration failed: ', registrationError);
-                    });
+                  navigator.serviceWorker.register('/sw.js').then(
+                    function(registration) { console.log('SW registered: ', registration); },
+                    function(registrationError) { console.log('SW registration failed: ', registrationError); }
+                  );
                 });
               }
             `,
           }}
         />
-      </head>
-      <body className="bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-200 min-h-screen flex flex-col antialiased">
         <Header />
         <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">{children}</main>
         <Footer />
