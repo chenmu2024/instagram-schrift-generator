@@ -26,7 +26,7 @@ const contactMethods = [
     description: "Fragen zu unserem Instagram Schrift Generator",
     contact: "Antwort innerhalb von 24 Stunden",
     action: "Nachricht schreiben",
-    href: "mailto:info@instagramschriftgenerator.pro?subject=Allgemeine Anfrage - Instagram Schrift Generator",
+    href: "mailto:info@instaschrift.pro?subject=Allgemeine Anfrage - Instagram Schrift Generator",
   },
   {
     icon: <Send className="text-purple-500" size={24} />,
@@ -34,7 +34,7 @@ const contactMethods = [
     description: "Schlage neue Instagram Schriftarten vor",
     contact: "Wir freuen uns über deine Ideen",
     action: "Vorschlag senden",
-    href: "mailto:info@instagramschriftgenerator.pro?subject=Feature-Wunsch - Instagram Schriftarten",
+    href: "mailto:info@instaschrift.pro?subject=Feature-Wunsch - Instagram Schriftarten",
   },
 ]
 
@@ -42,7 +42,7 @@ const faqItems = [
   {
     question: "Wie kann ich neue Instagram Schriftarten vorschlagen?",
     answer:
-      "Schreibe uns eine E-Mail an info@instagramschriftgenerator.pro mit deinem Vorschlag. Wir prüfen alle Anfragen und fügen beliebte Schriftarten zu unserem Instagram Schrift Generator hinzu.",
+      "Schreibe uns eine E-Mail an info@instaschrift.pro mit deinem Vorschlag. Wir prüfen alle Anfragen und fügen beliebte Schriftarten zu unserem Instagram Schrift Generator hinzu.",
   },
   {
     question: "Warum funktioniert eine Instagram Schriftart nicht?",
