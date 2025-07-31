@@ -1,0 +1,51 @@
+# Instagram Schrift Generator - Robots.txt
+# Optimiert für bessere SEO Performance mit 45+ Schriftarten
+
+User-agent: *
+Allow: /
+
+# Wichtige Seiten priorisieren
+Allow: /
+Allow: /faq
+Allow: /ueber-uns
+Allow: /kontakt
+
+# Neue Trending Kategorien
+Allow: /aesthetic-schrift
+Allow: /gaming-schrift
+Allow: /tiktok-schrift
+Allow: /y2k-cyber-schrift
+
+# Technische Seiten ausschließen
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*?*utm_*
+Disallow: /*?*fbclid*
+Disallow: /*?*gclid*
+
+# Spezielle Crawler-Regeln
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+Request-rate: 1/10s
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: TikTokBot
+Allow: /
+
+# Sitemap Location
+Sitemap: https://instaschrift.pro/sitemap.xml
+
+# Host Directive
+Host: https://instaschrift.pro
