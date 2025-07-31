@@ -84,9 +84,9 @@ export default function DatenschutzPage() {
           <br />
           Instagram Schrift Generator
           <br />
-          E-Mail: info@instagramschriftgenerator.pro
+          E-Mail: info@instaschrift.pro
           <br />
-          Website: instagramschriftgenerator.pro
+          Website: instaschrift.pro
         </p>
 
         <p>
@@ -212,9 +212,9 @@ export default function DatenschutzPage() {
           Instagram Schrift Generator können Sie sich jederzeit an uns wenden:
         </p>
         <p>
-          E-Mail: info@instagramschriftgenerator.pro
+          E-Mail: info@instaschrift.pro
           <br />
-          Website: instagramschriftgenerator.pro
+          Website: instaschrift.pro
         </p>
       </div>
     </div>
