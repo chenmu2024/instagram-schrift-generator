@@ -20,7 +20,7 @@ export default function NutzungsbedingungenPage() {
         <h2>1. Geltungsbereich</h2>
         <p>
           Diese Nutzungsbedingungen gelten für die Nutzung des Instagram Schrift Generators auf der Website
-          instagramschriftgenerator.pro (nachfolgend "Website" oder "Service"). Durch die Nutzung unseres Instagram
+          instaschrift.pro (nachfolgend "Website" oder "Service"). Durch die Nutzung unseres Instagram
           Schrift Generators erklären Sie sich mit diesen Nutzungsbedingungen einverstanden.
         </p>
 
@@ -182,9 +182,9 @@ export default function NutzungsbedingungenPage() {
           Bei Fragen zu diesen Nutzungsbedingungen oder unserem Instagram Schrift Generator können Sie uns kontaktieren:
         </p>
         <p>
-          E-Mail: info@instagramschriftgenerator.pro
+          E-Mail: info@instaschrift.pro
           <br />
-          Website: instagramschriftgenerator.pro
+          Website: instaschrift.pro
         </p>
 
         <h2>17. Besondere Hinweise für Instagram Schriftarten</h2>
